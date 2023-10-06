@@ -26,10 +26,16 @@ class TestClientes(unittest.TestCase):
         
         self.factura_1.objects = self.antibiotico_1
         self.factura_1.objects = self.antibiotico_2
+        self.factura_1.objects = self.antibiotico_2
+        
+        self.factura_2.objects = self.antibiotico_2
+        self.factura_2.objects = self.antibiotico_3
+        self.factura_2.objects = self.fertilizante
         
 
     def test_facturar(self):
         self.cliente.check_in(self.factura_1)
+        self.cliente.check_in(self.factura_2)
         
 
 
