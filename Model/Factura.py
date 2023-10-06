@@ -10,10 +10,6 @@ class Factura:
     def date(self):
         return self.__date
 
-    @date.setter
-    def date(self, date):
-        self.__date = date
-
     @property
     def objects(self):
         return self.__objects
