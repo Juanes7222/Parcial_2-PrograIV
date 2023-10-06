@@ -1,5 +1,6 @@
 from datetime import date
 
+
 class Factura:
 
     def __init__(self) -> None:
@@ -20,8 +21,10 @@ class Factura:
 
     def check_in(self, value):
         self.objects.append(value)
-        
-    # def total(self):
-    #     total = map(lambda x: x.vAalue, self.__objects)
-    #     return total
+
+    def valor_total(self):
+        total = 0
+        for articulo in self.objects:
+            total = total+articulo.value
+        return total
         
