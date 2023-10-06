@@ -1,0 +1,31 @@
+from datetime import date
+
+class Factura:
+
+    def __init__(self) -> None:
+        self.__date = date.today()
+        self.__objects = []
+
+    @property
+    def date(self):
+        return self.__date
+
+    @date.setter
+    def date(self, date):
+        self.__date = date
+
+    @property
+    def objects(self):
+        return self.__objects
+
+    @objects.setter
+    def objects(self, new_object):
+        self.__objects.append(new_object)
+
+    def check_in(self, value):
+        self.objects.append(value)
+        
+    # def total(self):
+    #     total = map(lambda x: x.vAalue, self.__objects)
+    #     return total
+        
