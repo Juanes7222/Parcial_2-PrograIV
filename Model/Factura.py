@@ -25,6 +25,6 @@ class Factura:
     def valor_total(self):
         total = 0
         for articulo in self.objects:
-            total = total+articulo.value
+            total += articulo.value
         return total
         
