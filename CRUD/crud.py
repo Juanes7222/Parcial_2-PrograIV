@@ -53,5 +53,5 @@ append_bill_client(client1, fact1)
 
 print(client)
 print(client[0].bills[0].objects)
-print(client[0].bills[0].valor_total())
+print(client[0].bills[0].total_value())
 
