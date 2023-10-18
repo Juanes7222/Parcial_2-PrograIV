@@ -10,8 +10,8 @@ def mostrar_encabezado(mensaje):
 
 def mostrar_errores(identificador):
     if identificador == 1:
-        print(mostrar_encabezado(' -> ERROR: Comando inválido <- '))
+        mostrar_encabezado(' -> ERROR: Comando inválido <- ')
     elif identificador == 2:
-        print(mostrar_encabezado(' -> ERROR: El formato de la cédula es incorrecto <- '))
+        mostrar_encabezado(' -> ERROR: El formato de la cédula es incorrecto <- ')
     elif identificador == 3:
-        print(mostrar_encabezado(' -> ERROR: Formato de nombre inválido <- '))
+        mostrar_encabezado(' -> ERROR: Formato de nombre inválido <- ')
