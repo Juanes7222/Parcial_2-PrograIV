@@ -23,8 +23,6 @@ class Factura:
         self.objects.append(value)
 
     def valor_total(self):
-        total = 0
-        for article in self.objects:
-            total += article.value
+        total = sum(map(lambda article: article.value, self.objects))
         return total
         
