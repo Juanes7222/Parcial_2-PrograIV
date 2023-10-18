@@ -22,7 +22,7 @@ class Factura:
     def check_in(self, value):
         self.objects.append(value)
 
-    def valor_total(self):
+    def total_value(self):
         total = sum(map(lambda article: article.value, self.objects))
         return total
         
