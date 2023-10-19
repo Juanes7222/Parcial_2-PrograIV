@@ -4,12 +4,12 @@ from mensajes import mostrar_encabezado as encabezado
 from mensajes import mostrar_errores as mostrar_error
 from validations import validar_cedula
 from validations import validad_nombre
-from CRUD.crud import *
+from CRUD.crud import append_bill_client, append_client_list, append_product_bill, create_bill, create_product_antibiotic, create_product_fertilizer, create_product_pests, create_client, client_exists
 
-antibioticos = {"Oxitrat": ["400ml", "Bovino", 114000], "Edo Benpropen": ["550ml", "Caprino", 200000],
+antibiotics = {"Oxitrat": ["400ml", "Bovino", 114000], "Edo Benpropen": ["550ml", "Caprino", 200000],
                 "Aurotilmicosin": ["500ml", "Porcinos", 150000]}
 
-def mostrar_opciones():
+def show_options():
     encabezado("BIENVENIDO A NUESTRO NEGOCIO")
     print("1. Hacer nueva compra")
     print("2. Buscar cliente por cédula")
@@ -18,62 +18,64 @@ def mostrar_opciones():
 
 
 def stock_antibioticos():
-    numeracion = 1
-    for antibiotico_nombre, info in antibioticos.items():
-        print(str(numeracion) + ". " + str(antibiotico_nombre) + " " + str(info[0]) + " - " + str(info[1]) +
-              "/ Precio: $" + str(info[2]))
-        numeracion += 1
+    numeration = 1
+    for antibiotic_name, info in antibiotics.items():
+        # print(str(numeration) + ". " + str(antibiotic_name) + " " + str(info[0]) + " - " + str(info[1]) +
+            #   "/ Precio: $" + str(info[2]))
+        #Otra manera de presentar la informacion, las f-strings, muy utiles
+        print(f"{numeration}. {antibiotic_name} {info[0]} - {info[1]}/ Precio: ${info[2]}")
+        numeration += 1
     try:
-        comando = int(input("\n¿Qué desea comprar?: "))
-        if 0 < comando <= len(antibioticos):
-            producto = list(antibioticos)[comando-1]
-            antibiotico_creado = create_product_antibiotic(name=producto,
-                                                           dose=antibioticos[producto][0],
-                                                           animal_type=antibioticos[producto][1],
-                                                           value=antibioticos[producto][2])
-            return antibiotico_creado
+        command = int(input("\n¿Qué desea comprar?: "))
+        if 0 < command <= len(antibiotics):
+            product = list(antibiotics)[command-1]
+            created_antibiotic = create_product_antibiotic(name=product,
+                                                           dose=antibiotics[product][0],
+                                                           animal_type=antibiotics[product][1],
+                                                           value=antibiotics[product][2])
+            return created_antibiotic
         else:
-            raise NameError
-    except NameError:
+            raise ValueError("Comando no valido")
+    except ValueError:
         mostrar_error(1)
         stock_antibioticos()
 
 
 
-def menu_principal():
-    mostrar_opciones()
-    comando = str(input("¿Qué desea hacer?: "))
+def main_menu():
+    show_options()
+    command = str(input("¿Qué desea hacer?: "))
     os.system("cls")
-    if comando == '1':
-        ingresar_info_usuario()
-    elif comando == '2':
+    if command == '1':
+        user_info_ingress()
+    elif command == '2':
         buscar_cliente()
-    elif comando == '3':
+    elif command == '3':
         encabezado("HASTA PRONTO")
         sys.exit()
     else:
         mostrar_error(1)
-    menu_principal()
+    main_menu()
 
 
-def ingresar_info_usuario():
+def user_info_ingress():
     encabezado("DATOS DE CLIENTE")
-    nombre = input("\nNombre completo (mínimo 3 caracteres y máximo 50): ").lower()
-    if validad_nombre(nombre):
-        cedula = input("\nIngrese la cédula (sin puntos, comas ni guiones): ")
+    name = input("\nNombre completo (mínimo 3 caracteres y máximo 50): ").lower()
+    if validad_nombre(name):
+        dni = input("\nIngrese la cédula (sin puntos, comas ni guiones): ")
         os.system("cls")
-        if validar_cedula(cedula):
-            cliente = create_client(nombre, cedula)
-            factura = realizar_compra()
-            cliente.check_in(factura)
+        if validar_cedula(dni):
+            client = create_client(name, dni)
+            bill = realizar_compra()
+            client.check_in(bill)
             encabezado("FACTURACIÓN TERMINADA CON ÉXITO")
         else:
             mostrar_error(2)
-            ingresar_info_usuario()
+            user_info_ingress()
     else:
         os.system("cls")
         mostrar_error(3)
-        ingresar_info_usuario()
+        user_info_ingress()
 
 
 def realizar_compra():
@@ -118,4 +120,4 @@ def buscar_cliente():
 
 
 if __name__ == "__main__":
-    menu_principal()
+    main_menu()
