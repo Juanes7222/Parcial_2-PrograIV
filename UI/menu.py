@@ -10,6 +10,9 @@ from CRUD.crud import (append_bill_client, append_client_list, append_product_bi
 
 antibiotics = {"Oxitrat": ["400ml", "Bovino", 114000], "Edo Benpropen": ["550ml", "Caprino", 200000],
                "Aurotilmicosin": ["500ml", "Porcinos", 150000]}
+fertilizers = {"Sulfato amónico": ["AVH1239", "15 días", 55000, "19/10/2023"],
+               "Cloruro potásico": ["BZD6935", "30 días", 70000, "15/10/2023"],
+               "Superfosfato simple": ["PLT9531", "7 días", 45000, "12/10/2023"]}
 
 
 def show_options():
