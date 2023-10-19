@@ -21,8 +21,7 @@ def show_options():
 
 
 def stock_antibioticos():
-    checker = True
-    while checker:
+    while True:
         numeration = 1
         for antibiotic_name, info in antibiotics.items():
             print(f"{numeration}. {antibiotic_name} {info[0]} - {info[1]}/ Precio: ${info[2]}")
@@ -34,10 +33,9 @@ def stock_antibioticos():
                                                            dose=antibiotics[product][0],
                                                            animal_type=antibiotics[product][1],
                                                            value=antibiotics[product][2])
-            checker = False
+            return created_antibiotic
         else:
             show_error(1)
-    return created_antibiotic
 
 
 def main_menu():
