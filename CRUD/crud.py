@@ -1,9 +1,8 @@
-from ..Model.Cliente import Cliente
-from ..Model.Factura import Factura 
-from ..Model.ProductosControl import ProductosControl 
-from ..Model.ControlFertilizantes import ControlFertilizantes 
-from ..Model.ControlPlagas import ControlPlagas 
-from ..Model.Antibioticos import Antibioticos
+from Model.Cliente import Cliente
+from Model.Factura import Factura 
+from Model.ControlFertilizantes import ControlFertilizantes 
+from Model.ControlPlagas import ControlPlagas 
+from Model.Antibioticos import Antibioticos
 
 def create_product_antibiotic(**kwargs):
     return Antibioticos(**kwargs)
@@ -37,21 +36,21 @@ def client_exists(dni: str, clients: list[Cliente]):
     return False
 
 #Pequeños test
-client: list[Cliente] = []
-ant1 = create_product_antibiotic(name="antibiotico_1", dose="10ml", animal_type="bovino",
-                                                      value=12000)
-fact1 = create_bill()
+# client: list[Cliente] = []
+# ant1 = create_product_antibiotic(name="antibiotico_1", dose="10ml", animal_type="bovino",
+#                                                       value=12000)
+# fact1 = create_bill()
 
-client1 = create_client(dni="111", name="juan")
+# client1 = create_client(dni="111", name="juan")
 
-append_product_bill(ant1, fact1)
-append_product_bill(ant1, fact1)
+# append_product_bill(ant1, fact1)
+# append_product_bill(ant1, fact1)
 
-append_client_list(client1, client)
+# append_client_list(client1, client)
 
-append_bill_client(client1, fact1)
+# append_bill_client(client1, fact1)
 
-print(client)
-print(client[0].bills[0].objects)
-print(client[0].bills[0].total_value())
+# print(client)
+# print(client[0].bills[0].objects)
+# print(client[0].bills[0].total_value())
 

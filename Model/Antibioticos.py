@@ -37,3 +37,8 @@ class Antibioticos:
     @value.setter
     def value(self, cost):
         self.__value = cost
+    
+    def __str__(self) -> str:
+        info = f"NOMBRE: {self.name}\tDOSIS: {self.dose}\n"
+        info += f"VALOR: {self.value}\tTIPO DE ANIMAL: {self.animal_type}"
+        return info

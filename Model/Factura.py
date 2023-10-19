@@ -1,6 +1,5 @@
 from datetime import date
 
-
 class Factura:
 
     def __init__(self) -> None:
@@ -14,13 +13,20 @@ class Factura:
     @property
     def objects(self):
         return self.__objects
-
+    
     @objects.setter
     def objects(self, new_object):
         self.__objects.append(new_object)
-
+    
     def check_in(self, value):
         self.objects.append(value)
+        
+    def __dict__(self):
+        values = {
+            "fecha": self.date,
+            "productos": self.objects
+        }
+        return values
 
     def total_value(self):
         total = 0

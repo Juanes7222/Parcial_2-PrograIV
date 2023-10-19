@@ -14,3 +14,8 @@ class ControlPlagas(producto_control.ProductosControl):
     @grace_period.setter
     def grace_period(self, period):
         self.__grace_period = period
+        
+    def __str__(self) -> str:
+        info = f"ICA: {self.ica}\tNOMBRE: {self.name}\tFRECUENCIA: {self.freq}\n"
+        info += f"VALOR: {self.value}\PERIODO DE CARENCIA: {self.grace_period}"
+        return info
