@@ -25,20 +25,17 @@ def stock_antibioticos():
         #Otra manera de presentar la informacion, las f-strings, muy utiles
         print(f"{numeration}. {antibiotic_name} {info[0]} - {info[1]}/ Precio: ${info[2]}")
         numeration += 1
-    try:
+    while True:
         command = int(input("\n¿Qué desea comprar?: "))
         if 0 < command <= len(antibiotics):
             product = list(antibiotics)[command-1]
             created_antibiotic = create_product_antibiotic(name=product,
-                                                           dose=antibiotics[product][0],
-                                                           animal_type=antibiotics[product][1],
-                                                           value=antibiotics[product][2])
+                                                        dose=antibiotics[product][0],
+                                                        animal_type=antibiotics[product][1],
+                                                        value=antibiotics[product][2])
             return created_antibiotic
         else:
-            raise ValueError("Comando no valido")
-    except ValueError:
-        mostrar_error(1)
-        stock_antibioticos()
+            mostrar_error(1)
 
 
 
