@@ -1,17 +1,17 @@
-def mostrar_encabezado(mensaje):
-    encabezado = "+"
-    longitud = len(mensaje)
-    for contador in range(1, longitud + 3):
-        encabezado += "-"
-    encabezado += "+"
-    encabezado = encabezado + "\n| " + mensaje + " |\n" + encabezado
-    print(encabezado)
+def show_header(message):
+    header = "+"
+    message_lenght = len(message)
+    for counter in range(1, message_lenght + 3):
+        header += "-"
+    header += "+"
+    header = header + "\n| " + message + " |\n" + header
+    print(header)
 
 
-def mostrar_errores(identificador):
-    if identificador == 1:
-        mostrar_encabezado(' -> ERROR: Comando inválido <- ')
-    elif identificador == 2:
-        mostrar_encabezado(' -> ERROR: El formato de la cédula es incorrecto <- ')
-    elif identificador == 3:
-        mostrar_encabezado(' -> ERROR: Formato de nombre inválido <- ')
+def show_errors(identifier):
+    if identifier == 1:
+        show_header(' -> ERROR: Comando inválido <- ')
+    elif identifier == 2:
+        show_header(' -> ERROR: El formato de la cédula es incorrecto <- ')
+    elif identifier == 3:
+        show_header(' -> ERROR: Formato de nombre inválido <- ')
