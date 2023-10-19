@@ -5,6 +5,7 @@ from Model import ControlFertilizantes as control_fertilizante
 from Model import ControlPlagas as control_plagas
 from Model import Factura as factura
 from CRUD import crud
+from UI import validations
 
 
 class TestClientes(unittest.TestCase):
@@ -39,7 +40,7 @@ class TestClientes(unittest.TestCase):
         self.bill_crud_1 = crud.create_bill()
         self.bill_crud_2 = crud.create_bill()
 
-    def test_facturar(self):
+    def test_check_in(self):
         self.bill_1.check_in(self.antibiotic_1)
         self.bill_1.check_in(self.antibiotic_2)
         self.bill_1.check_in(self.antibiotic_3)
@@ -77,7 +78,23 @@ class TestClientes(unittest.TestCase):
         self.assertEqual(self.client_crud.bills[0].total_value(), 510000)
         self.assertEqual(self.client_crud.bills[1].total_value(), 510000)
 
+        # Faltan las pruebas relacionadas con la lista de clientes
+
+    def test_input_validations(self):
+        self.assertTrue(validations.validate_name("Sebastian"))
+        self.assertTrue(validations.validate_name("Sebastian Cacante"))
+        self.assertTrue(validations.validate_name("Sebastian Cacante Salazar"))
+        self.assertFalse(validations.validate_name("$eb?stian"))
+        self.assertFalse(validations.validate_name("Se"))
+
+        self.assertTrue(validations.validate_cedula("1091272102"))
+        self.assertTrue(validations.validate_cedula("43381789"))
+        self.assertFalse(validations.validate_cedula("ABCDEF123456"))
+        self.assertFalse(validations.validate_cedula("123"))
+        self.assertFalse(validations.validate_cedula("1.091.272.102"))
+        self.assertFalse(validations.validate_cedula("1-091-272-102"))
+        self.assertFalse(validations.validate_cedula("1 091 272 102"))
+
 
 if __name__ == '__main__':
     unittest.main()
-    
