@@ -30,13 +30,6 @@ class Cliente:
 
     def bills(self, bill):
         self.__bills.append(bill)
-        
-    def __dict__(self):
-        values = {
-            "nombre": self.name,
-            "cedula": self.dni,
-        }
-        return values
 
     def check_in(self, bill):
         self.bills.append(bill)

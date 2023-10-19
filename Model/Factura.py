@@ -20,13 +20,6 @@ class Factura:
     
     def check_in(self, value):
         self.objects.append(value)
-        
-    def __dict__(self):
-        values = {
-            "fecha": self.date,
-            "productos": self.objects
-        }
-        return values
 
     def total_value(self):
         total = 0
