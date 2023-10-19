@@ -4,7 +4,7 @@ from datetime import date
 class Factura:
 
     def __init__(self) -> None:
-        self.__date = date.today().strftime("%A, %d de %B de %Y").title()
+        self.__date = date.today()
         self.__objects = []
 
     @property
@@ -22,7 +22,8 @@ class Factura:
     def check_in(self, value):
         self.objects.append(value)
 
-    def valor_total(self):
-        total = sum(map(lambda article: article.value, self.objects))
+    def total_value(self):
+        total = 0
+        for article in self.objects:
+            total += article.value
         return total
-        
