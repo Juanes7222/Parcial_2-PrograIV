@@ -46,7 +46,7 @@ def main_menu():
     if command == '1':
         user_info_ingress()
     elif command == '2':
-        buscar_cliente()
+        search_client()
     elif command == '3':
         encabezado("HASTA PRONTO")
         sys.exit()
@@ -63,7 +63,7 @@ def user_info_ingress():
         os.system("cls")
         if validar_cedula(dni):
             client = create_client(name, dni)
-            bill = realizar_compra()
+            bill = make_purchase()
             client.check_in(bill)
             encabezado("FACTURACIÓN TERMINADA CON ÉXITO")
         else:
@@ -75,7 +75,7 @@ def user_info_ingress():
         user_info_ingress()
 
 
-def realizar_compra():
+def make_purchase():
     verificador = True
     total_compra = 0
     factura = create_bill()
@@ -100,11 +100,11 @@ def realizar_compra():
             print("PENDIENTE")
         else:
             mostrar_error(1)
-            realizar_compra()
+            make_purchase()
     return factura
 
 
-def buscar_cliente():
+def search_client():
     encabezado("BÚSQUEDA POR CÉDULA")
     print("\nIngrese el cédula del cliente sin puntos, comas ni guiones: ")
     cedula = input("\n  -> ")
@@ -113,7 +113,7 @@ def buscar_cliente():
         print("PENDIENTE")
     else:
         mostrar_error(2)
-        buscar_cliente()
+        search_client()
 
 
 if __name__ == "__main__":
