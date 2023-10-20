@@ -55,7 +55,7 @@ def create_product():
     command = menu.show_purchase_options(2)
     if command == 1:
         params = menu.get_params(antibiotic_params)
-        name = norm_params()
+        name = norm_params(params)
         antibiotics[name] = params
     elif command == 2:
         params = menu.get_params(fertilizer_params)
