@@ -77,7 +77,16 @@ def get_params(params):
     header("Ingrese los valores")
     values = {}
     for param in params:
-        value = input(f"{param}: ")
+        if param == "value":
+            while True:
+                try:
+                    value = int(input(f"{param}: "))
+                    break
+                except ValueError:
+                    show_error(5)
+                    print("\n\n")
+        else:
+            value = input(f"{param}: ")
         values[param] = value
     return values
 

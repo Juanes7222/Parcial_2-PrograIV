@@ -17,3 +17,5 @@ def show_errors(identifier):
         show_header(' -> ERROR: Formato de nombre inválido <- ')
     elif identifier == 4:
         show_header(' -> ERROR: Cliente no existe <- ')
+    elif identifier == 5:
+        show_header(' -> ERROR: Formato no valido <- ')
