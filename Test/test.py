@@ -78,8 +78,6 @@ class TestClientes(unittest.TestCase):
         self.assertEqual(self.client_crud.bills[0].total_value(), 510000)
         self.assertEqual(self.client_crud.bills[1].total_value(), 510000)
 
-        # Faltan las pruebas relacionadas con la lista de clientes
-
     def test_input_validations(self):
         self.assertTrue(validations.validate_name("Sebastian"))
         self.assertTrue(validations.validate_name("Sebastian Cacante"))
