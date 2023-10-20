@@ -84,6 +84,7 @@ class TestClientes(unittest.TestCase):
         self.assertTrue(validations.validate_name("Sebastian"))
         self.assertTrue(validations.validate_name("Sebastian Cacante"))
         self.assertTrue(validations.validate_name("Sebastian Cacante Salazar"))
+        self.assertTrue(validations.validate_name("Mañe"))
         self.assertFalse(validations.validate_name("$eb?stian"))
         self.assertFalse(validations.validate_name("Se"))
 
