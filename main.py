@@ -86,7 +86,6 @@ def main():
             create_product()
         elif command == 4:
             sys.exit()
-        print("\n\n")
 
 
 if __name__ == "__main__":
