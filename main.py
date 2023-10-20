@@ -81,7 +81,7 @@ def main():
         elif command == 3:
             create_product()
         elif command == 4:
-            sys.exist()
+            sys.exit()
         print("\n\n")
         
 
